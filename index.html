@@ -10,93 +10,101 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     min-height: 100vh;
     background:
-        radial-gradient(circle at 50% 30%, #242424 0%, #111 35%, #050505 75%);
+        radial-gradient(circle at 50% 20%, #292929 0%, #111 35%, #030303 80%);
     color: white;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-    background-size: 45px 45px;
-}
+/* BINTANG / PARTIKEL */
 
-/* PARTICLES */
-
-.particle {
+.partikel {
     position: fixed;
     width: 2px;
     height: 2px;
     background: white;
     border-radius: 50%;
     opacity: .3;
-    animation: float 8s infinite ease-in-out;
+    animation: bergerak 8s infinite ease-in-out;
 }
 
-@keyframes float {
+@keyframes bergerak {
     0%,100% {
         transform: translateY(0);
         opacity: .1;
     }
+
     50% {
         transform: translateY(-80px);
         opacity: .6;
     }
 }
 
-/* MAIN */
+/* CONTAINER */
 
 .container {
-    width: min(92%, 700px);
-    margin: auto;
+    width: min(92%, 720px);
     min-height: 100vh;
+    margin: auto;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 50px 0;
+    align-items: center;
+    padding: 40px 0;
 }
 
-.card {
+/* KARTU */
+
+.kartu {
     width: 100%;
-    text-align: center;
     padding: 55px 30px;
+    text-align: center;
+
+    background: rgba(10,10,10,.78);
     border: 1px solid rgba(255,255,255,.15);
-    background: rgba(10,10,10,.72);
+    border-radius: 25px;
+
     backdrop-filter: blur(18px);
-    box-shadow: 0 30px 80px rgba(0,0,0,.65);
-    border-radius: 24px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7);
+
     position: relative;
     overflow: hidden;
 }
 
-.card::before {
+.kartu::before {
     content: "";
     position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255,255,255,.08), transparent 70%);
-    top: -150px;
+
+    width: 350px;
+    height: 350px;
+
+    top: -180px;
     left: 50%;
+
     transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.08),
+            transparent 70%
+        );
 }
+
+/* JUDUL */
 
 .logo {
     font-size: 12px;
-    letter-spacing: 6px;
+    letter-spacing: 7px;
     color: #999;
     margin-bottom: 30px;
 }
@@ -105,558 +113,675 @@ h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(42px, 10vw, 78px);
     font-weight: 500;
-    letter-spacing: 4px;
     line-height: .9;
+    letter-spacing: 4px;
 }
 
-.subtitle {
-    margin-top: 18px;
-    font-size: 11px;
-    letter-spacing: 5px;
+.subjudul {
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 3px;
     color: #aaa;
-    text-transform: uppercase;
 }
 
-.line {
+.garis {
     width: 80px;
     height: 1px;
-    background: linear-gradient(to right, transparent, white, transparent);
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            white,
+            transparent
+        );
+
     margin: 35px auto;
 }
 
-.description {
-    color: #999;
-    line-height: 1.8;
-    font-size: 13px;
-    max-width: 450px;
+.deskripsi {
+    max-width: 480px;
     margin: auto;
+
+    color: #999;
+
+    font-size: 13px;
+    line-height: 1.9;
 }
+
+/* TOMBOL */
 
 button {
     margin-top: 35px;
+
     padding: 15px 35px;
+
     background: transparent;
     color: white;
+
     border: 1px solid rgba(255,255,255,.4);
     border-radius: 50px;
+
     font-family: inherit;
     font-size: 11px;
+
     letter-spacing: 3px;
+
     cursor: pointer;
+
     transition: .4s;
 }
 
 button:hover {
     background: white;
     color: black;
-    box-shadow: 0 0 35px rgba(255,255,255,.2);
+
+    box-shadow:
+        0 0 35px rgba(255,255,255,.2);
 }
 
 /* REVEAL */
 
-.hidden {
+.sembunyi {
     display: none;
 }
 
 .reveal {
-    animation: reveal .9s ease forwards;
+    animation: muncul .9s ease forwards;
 }
 
-@keyframes reveal {
+@keyframes muncul {
+
     from {
         opacity: 0;
-        transform: translateY(30px) scale(.97);
+        transform:
+            translateY(30px)
+            scale(.97);
     }
+
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
-.number {
+.nomor {
     font-size: 10px;
     letter-spacing: 5px;
     color: #666;
     margin-bottom: 15px;
 }
 
-.name {
+.nama {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(55px, 15vw, 100px);
+
+    font-size: clamp(
+        55px,
+        15vw,
+        100px
+    );
+
     text-transform: uppercase;
+
     letter-spacing: 5px;
 }
 
-.colors {
-    font-size: 40px;
+.warna {
+    font-size: 45px;
+
     margin: 25px 0;
+
     letter-spacing: 8px;
 }
 
-.character-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 31px;
-    font-style: italic;
-    margin-bottom: 18px;
-}
+.jenis {
+    font-size: 11px;
 
-.character-type {
-    font-size: 10px;
     letter-spacing: 3px;
-    color: #999;
+
+    color: #aaa;
+
     text-transform: uppercase;
 }
 
-.quote {
-    margin: 28px auto;
-    max-width: 470px;
+.garis-kecil {
+    width: 60px;
+    height: 1px;
+
+    background: #777;
+
+    margin: 25px auto;
+}
+
+.judul-karakter {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+
+    font-size: 34px;
+
+    font-style: italic;
+
+    margin-bottom: 20px;
+}
+
+.kutipan {
+    max-width: 480px;
+
+    margin: 25px auto;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 23px;
+
     line-height: 1.5;
+
     color: #ddd;
 }
 
-.message {
-    max-width: 470px;
+.pesan {
+    max-width: 480px;
+
     margin: auto;
+
     font-size: 13px;
+
     line-height: 1.9;
+
     color: #999;
 }
 
 .footer {
     margin-top: 45px;
+
     font-size: 9px;
+
     letter-spacing: 4px;
+
     color: #555;
 }
 
-/* COLOR EFFECTS */
+/* EFEK WARNA */
 
-.black-glow {
+.efek-hitam {
     box-shadow:
         0 0 100px rgba(0,0,0,.9),
         inset 0 0 70px rgba(255,255,255,.015);
 }
 
-.grey-glow {
+.efek-abu {
     box-shadow:
-        0 0 100px rgba(160,160,160,.08),
+        0 0 100px rgba(180,180,180,.1),
         inset 0 0 70px rgba(180,180,180,.03);
 }
 
-.white-glow {
+.efek-putih {
     box-shadow:
-        0 0 100px rgba(255,255,255,.1),
+        0 0 100px rgba(255,255,255,.15),
         inset 0 0 70px rgba(255,255,255,.04);
 }
 
-.green-glow {
+.efek-hijau {
     box-shadow:
-        0 0 100px rgba(70,255,150,.18),
+        0 0 100px rgba(70,255,150,.2),
         inset 0 0 70px rgba(70,255,150,.04);
 }
 
-.green-text {
-    color: #75e6a5;
+.teks-hijau {
+    color: #70e6a0;
 }
 
-.small-note {
+.catatan {
     margin-top: 20px;
+
     font-size: 10px;
+
     color: #555;
 }
+
 </style>
 </head>
 
+
 <body>
 
-<div class="particle" style="left:10%;top:20%;animation-delay:1s"></div>
-<div class="particle" style="left:25%;top:70%;animation-delay:3s"></div>
-<div class="particle" style="left:70%;top:30%;animation-delay:2s"></div>
-<div class="particle" style="left:90%;top:65%;animation-delay:5s"></div>
-<div class="particle" style="left:55%;top:85%;animation-delay:4s"></div>
+<!-- PARTIKEL -->
+
+<div class="partikel" style="left:10%;top:20%;"></div>
+<div class="partikel" style="left:25%;top:70%;animation-delay:2s"></div>
+<div class="partikel" style="left:70%;top:30%;animation-delay:4s"></div>
+<div class="partikel" style="left:90%;top:65%;animation-delay:1s"></div>
+<div class="partikel" style="left:55%;top:85%;animation-delay:3s"></div>
+
 
 <div class="container">
 
-    <!-- OPENING -->
-    <div class="card black-glow" id="opening">
+<!-- HALAMAN AWAL -->
 
-        <div class="logo">
-            RP ALUZ
-        </div>
+<div class="kartu efek-hitam" id="halamanAwal">
 
-        <h1>
-            DI<br>
-            KARAKTER
-        </h1>
-
-        <div class="subtitle">
-            The Character Within Us
-        </div>
-
-        <div class="line"></div>
-
-        <p class="description">
-            Everyone has a side that people see,
-            and a side that only a few people know.
-            <br><br>
-            Tonight, yours will be revealed.
-        </p>
-
-        <button onclick="startReveal()">
-            UNLOCK YOUR CHARACTER
-        </button>
-
-        <div class="small-note">
-            Scan • Discover • Reveal
-        </div>
-
+    <div class="logo">
+        RP ALUZ
     </div>
 
+    <h1>
+        DI<br>
+        KARAKTER
+    </h1>
 
-    <!-- REVEAL -->
-    <div class="card hidden" id="reveal">
-
-        <div class="number" id="number"></div>
-
-        <div class="name" id="name"></div>
-
-        <div class="colors" id="colors"></div>
-
-        <div class="character-type" id="type"></div>
-
-        <div class="line"></div>
-
-        <div class="character-name" id="characterName"></div>
-
-        <div class="quote" id="quote"></div>
-
-        <div class="message" id="message"></div>
-
-        <div class="footer">
-            25 CHARACTERS • ONE TEAM • ONE STORY
-        </div>
-
+    <div class="subjudul">
+        Kenali karakter di balik setiap orang
     </div>
+
+    <div class="garis"></div>
+
+    <p class="deskripsi">
+
+        Setiap orang memiliki sisi yang berbeda.
+        Ada yang baik, ada yang jahat,
+        ada yang berada di tengah,
+        dan ada yang menjadi tempat aman bagi orang lain.
+
+        <br><br>
+
+        Sekarang waktunya mengetahui
+        karakter kamu.
+
+    </p>
+
+    <button onclick="bukaKarakter()">
+        BUKA KARAKTERKU
+    </button>
+
+    <div class="catatan">
+        25 orang • 25 karakter • 1 keluarga
+    </div>
+
+</div>
+
+
+<!-- HALAMAN KARAKTER -->
+
+<div class="kartu sembunyi" id="halamanKarakter">
+
+    <div class="nomor" id="nomor"></div>
+
+    <div class="nama" id="nama"></div>
+
+    <div class="warna" id="warna"></div>
+
+    <div class="jenis" id="jenis"></div>
+
+    <div class="garis-kecil"></div>
+
+    <div class="judul-karakter" id="judulKarakter"></div>
+
+    <div class="kutipan" id="kutipan"></div>
+
+    <div class="pesan" id="pesan"></div>
+
+    <div class="footer">
+        25 KARAKTER • SATU KELUARGA
+    </div>
+
+</div>
 
 </div>
 
 
 <script>
 
-/* =========================================
-   DATA 25 ANGGOTA
-========================================= */
+/* ==========================================
+   DATA 25 ORANG
+========================================== */
 
-const members = {
+const anggota = {
 
-    "ghea": {
-        name: "Ghea",
-        colors: "🖤 🩶",
-        type: "BLACK CHARACTER × GREY CHARACTER",
-        character: "The Dual Soul",
-        quote: "Sometimes the strongest people are the ones who understand both sides.",
-        message: "You carry a strong presence, but you are not limited to one perspective. You can be firm when needed and still understand the grey areas that others might overlook."
+    ghea: {
+        nama: "Ghea",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Sisi Gelap yang Tidak Sepenuhnya Gelap",
+        kutipan: "Tidak semua orang bisa dikategorikan hanya sebagai baik atau jahat.",
+        pesan: "Kamu memiliki sisi yang bisa terlihat keras dan jahat, tetapi tidak sepenuhnya berada di satu sisi. Ada keadaan tertentu yang membuatmu bisa berubah dan mempertimbangkan sisi lainnya."
     },
 
-    "naura": {
-        name: "Naura",
-        colors: "🖤",
-        type: "BLACK CHARACTER",
-        character: "The Shadow",
-        quote: "There is strength in the side of you that not everyone gets to see.",
-        message: "You have a strong and mysterious energy. You know when to stand your ground, when to be bold, and when silence speaks louder than words."
+    naura: {
+        nama: "Naura",
+        warna: "🖤",
+        jenis: "JAHAT",
+        karakter: "Sisi Gelap",
+        kutipan: "Tidak semua sisi gelap harus disembunyikan.",
+        pesan: "Kamu memiliki karakter yang kuat, keras, dan berani. Ada sisi dalam dirimu yang tidak selalu lembut dan tidak takut menunjukkan ketegasan."
     },
 
-    "nala": {
-        name: "Nala",
-        colors: "🖤 🩶",
-        type: "BLACK CHARACTER × GREY CHARACTER",
-        character: "The Dual Soul",
-        quote: "Not everything is black or white. Sometimes, understanding lives in between.",
-        message: "You have the ability to be strong while still considering different perspectives. You are not afraid of complexity."
+    nala: {
+        nama: "Nala",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Di Antara Dua Sisi",
+        kutipan: "Kadang seseorang tidak benar-benar baik, tetapi juga tidak sepenuhnya jahat.",
+        pesan: "Kamu berada di antara dua sisi. Dalam keadaan tertentu kamu bisa menunjukkan sisi gelap, tetapi di keadaan lain kamu masih bisa memahami dan mempertimbangkan keadaan."
     },
 
-    "azzira": {
-        name: "Azzira",
-        colors: "🩶 🤍",
-        type: "GREY CHARACTER × WHITE CHARACTER",
-        character: "The Balance",
-        quote: "Some people are not here to choose sides. They are here to create balance.",
-        message: "You naturally bring calmness and balance. You can understand different sides while still choosing kindness and fairness."
+    azzira: {
+        nama: "Azzira",
+        warna: "🩶 🤍",
+        jenis: "SETENGAH-SETENGAH × BAIK",
+        karakter: "Penengah",
+        kutipan: "Tidak selalu harus memilih satu sisi.",
+        pesan: "Kamu bisa memahami berbagai keadaan. Ada sisi baik dalam dirimu, tetapi kamu juga tahu bahwa tidak semua keadaan sesederhana baik dan buruk."
     },
 
-    "fidel": {
-        name: "Fidel",
-        colors: "💚",
-        type: "SAFE PLACE",
-        character: "The Safe Place",
-        quote: "Some people feel like home.",
-        message: "You are the kind of person who makes others feel safe enough to be themselves. Sometimes you do not need to have the answer. Being there is already enough."
+    fidel: {
+        nama: "Fidel",
+        warna: "💚",
+        jenis: "SAFE PLACE",
+        karakter: "Tempat Aman",
+        kutipan: "Ada orang yang kehadirannya terasa seperti rumah.",
+        pesan: "Kamu adalah seseorang yang bisa membuat orang lain merasa nyaman dan aman. Kamu bisa menjadi tempat untuk bercerita, beristirahat, dan menjadi diri sendiri."
     },
 
-    "adli": {
-        name: "Adli",
-        colors: "🩶 🤍",
-        type: "GREY CHARACTER × WHITE CHARACTER",
-        character: "The Balance",
-        quote: "Understanding comes before judgment.",
-        message: "You can stand between different perspectives without losing your sense of fairness. You are a quiet balance within the team."
+    adli: {
+        nama: "Adli",
+        warna: "🩶 🤍",
+        jenis: "SETENGAH-SETENGAH × BAIK",
+        karakter: "Penengah",
+        kutipan: "Memahami keadaan sebelum menentukan sisi.",
+        pesan: "Kamu mampu melihat keadaan dari beberapa sudut. Kamu punya sisi baik yang kuat, tetapi tetap memahami bahwa setiap keadaan memiliki cerita yang berbeda."
     },
 
-    "reona": {
-        name: "Reona",
-        colors: "🩶",
-        type: "GREY CHARACTER",
-        character: "The Grey Mind",
-        quote: "The world is rarely as simple as right or wrong.",
-        message: "You understand that every situation has another side. Your ability to think between the lines makes you valuable when decisions are not simple."
+    reona: {
+        nama: "Reona",
+        warna: "🩶",
+        jenis: "SETENGAH-SETENGAH",
+        karakter: "Di Tengah",
+        kutipan: "Tidak semua hal hanya memiliki dua jawaban.",
+        pesan: "Kamu tidak selalu berpihak pada satu sisi. Kamu bisa melihat keadaan dari berbagai sudut dan memilih berdasarkan situasi yang ada."
     },
 
-    "zuhrah": {
-        name: "Zuhrah",
-        colors: "🩶 🤍",
-        type: "GREY CHARACTER × WHITE CHARACTER",
-        character: "The Balance",
-        quote: "A calm mind can see what chaos cannot.",
-        message: "You carry a balanced energy. You can understand different perspectives while remaining kind, calm, and fair."
+    zuhrah: {
+        nama: "Zuhrah",
+        warna: "🩶 🤍",
+        jenis: "SETENGAH-SETENGAH × BAIK",
+        karakter: "Penengah",
+        kutipan: "Ketenangan sering muncul dari kemampuan memahami dua sisi.",
+        pesan: "Kamu memiliki sisi baik dan juga kemampuan memahami keadaan yang tidak selalu hitam putih. Kamu bisa menjadi penyeimbang dalam kelompok."
     },
 
-    "arif": {
-        name: "Arif",
-        colors: "🤍",
-        type: "WHITE CHARACTER",
-        character: "The Light",
-        quote: "Kindness does not need to be loud to be powerful.",
-        message: "You bring a neutral and positive energy into the team. Your presence helps create an atmosphere where people can breathe and be themselves."
+    arif: {
+        nama: "Arif",
+        warna: "🤍",
+        jenis: "BAIK",
+        karakter: "Sisi Terang",
+        kutipan: "Kebaikan tidak perlu selalu ditunjukkan dengan suara keras.",
+        pesan: "Kamu cenderung membawa energi yang baik dan positif. Kehadiranmu dapat membuat suasana menjadi lebih tenang dan nyaman."
     },
 
-    "annisa": {
-        name: "Annisa",
-        colors: "🖤",
-        type: "BLACK CHARACTER",
-        character: "The Shadow",
-        quote: "Strength is not always meant to be understood by everyone.",
-        message: "You have a strong character and a presence that can stand on its own. You know how to be firm when the situation demands it."
+    annisa: {
+        nama: "Annisa",
+        warna: "🖤",
+        jenis: "JAHAT",
+        karakter: "Sisi Gelap",
+        kutipan: "Ada kekuatan dalam sisi yang tidak semua orang lihat.",
+        pesan: "Kamu memiliki karakter yang kuat dan tegas. Kamu tidak takut menunjukkan sisi kerasmu ketika keadaan membutuhkannya."
     },
 
-    "marcel": {
-        name: "Marcel",
-        colors: "🖤 🩶",
-        type: "BLACK CHARACTER × GREY CHARACTER",
-        character: "The Dual Soul",
-        quote: "You can be strong without forgetting how to understand.",
-        message: "You have both firmness and flexibility. You can take a strong position while still being able to understand another point of view."
+    marcel: {
+        nama: "Marcel",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Dua Sisi",
+        kutipan: "Kuat untuk berdiri, cukup memahami untuk melihat sisi lain.",
+        pesan: "Kamu memiliki sisi keras sekaligus kemampuan memahami keadaan. Kamu tidak sepenuhnya berada di satu sisi."
     },
 
-    "arzak": {
-        name: "Arzak",
-        colors: "🖤 🤍",
-        type: "BLACK CHARACTER × WHITE CHARACTER",
-        character: "The Gentle Strength",
-        quote: "Real strength knows when to be fierce and when to be gentle.",
-        message: "You combine determination with kindness. You can be strong without losing your sense of what is right."
+    arzak: {
+        nama: "Arzak",
+        warna: "🖤 🤍",
+        jenis: "JAHAT × BAIK",
+        karakter: "Dua Sisi yang Berlawanan",
+        kutipan: "Seseorang bisa memiliki sisi baik dan sisi gelap sekaligus.",
+        pesan: "Kamu memiliki perpaduan karakter yang berlawanan. Ada sisi tegas dan keras, tetapi ada pula sisi baik yang tetap muncul dalam keadaan tertentu."
     },
 
-    "via": {
-        name: "Via",
-        colors: "🤍 🩶 🖤",
-        type: "WHITE × GREY × BLACK",
-        character: "The Complete Spectrum",
-        quote: "You cannot be defined by just one side.",
-        message: "You carry many layers. You can be kind, uncertain, understanding, firm, and strong depending on what the moment needs."
+    via: {
+        nama: "Via",
+        warna: "🤍 🩶 🖤",
+        jenis: "BAIK × SETENGAH-SETENGAH × JAHAT",
+        karakter: "Tiga Sisi",
+        kutipan: "Tidak ada satu sisi yang mampu menjelaskan seluruh dirimu.",
+        pesan: "Kamu memiliki karakter yang kompleks. Ada sisi baik, sisi yang berada di tengah, dan sisi gelap. Ketiganya bisa muncul tergantung keadaan."
     },
 
-    "elif": {
-        name: "Elif",
-        colors: "🤍",
-        type: "WHITE CHARACTER",
-        character: "The Light",
-        quote: "A good heart can change the atmosphere of an entire room.",
-        message: "Your character carries warmth and neutrality. You have the ability to become a calming presence when things around you become complicated."
+    elif: {
+        nama: "Elif",
+        warna: "🤍",
+        jenis: "BAIK",
+        karakter: "Sisi Terang",
+        kutipan: "Kebaikan kecil bisa mengubah suasana.",
+        pesan: "Kamu memiliki sisi yang cenderung baik dan positif. Kehadiranmu bisa membawa ketenangan dan membuat orang lain merasa lebih nyaman."
     },
 
-    "meme": {
-        name: "Meme",
-        colors: "🖤 🩶",
-        type: "BLACK CHARACTER × GREY CHARACTER",
-        character: "The Dual Soul",
-        quote: "There is more to you than what first meets the eye.",
-        message: "You have a layered personality. You can be strong and direct, while still understanding the situations that exist somewhere between black and white."
+    meme: {
+        nama: "Meme",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Dua Sisi",
+        kutipan: "Tidak semua yang terlihat hanya memiliki satu sisi.",
+        pesan: "Kamu mempunyai sisi keras sekaligus sisi yang mampu memahami keadaan. Kamu bisa berubah sesuai situasi dan orang di sekitarmu."
     },
 
-    "desfa": {
-        name: "Desfa",
-        colors: "🩶 🤍",
-        type: "GREY CHARACTER × WHITE CHARACTER",
-        character: "The Balance",
-        quote: "Sometimes the most important role is simply keeping things balanced.",
-        message: "You bring a mixture of understanding, calmness, and kindness. You help the team see beyond one simple perspective."
+    desfa: {
+        nama: "Desfa",
+        warna: "🩶 🤍",
+        jenis: "SETENGAH-SETENGAH × BAIK",
+        karakter: "Penengah",
+        kutipan: "Berada di tengah bukan berarti tidak memiliki pendirian.",
+        pesan: "Kamu mampu memahami berbagai sisi sambil tetap memiliki kecenderungan untuk memilih hal yang baik."
     },
 
-    "nickyta": {
-        name: "Nickyta",
-        colors: "🩶",
-        type: "GREY CHARACTER",
-        character: "The Grey Mind",
-        quote: "Between two sides, there is always a story worth understanding.",
-        message: "You have the ability to see situations from different angles. You do not rush to judge, and that makes your perspective valuable."
+    nickyta: {
+        nama: "Nickyta",
+        warna: "🩶",
+        jenis: "SETENGAH-SETENGAH",
+        karakter: "Di Tengah",
+        kutipan: "Selalu ada sisi lain yang belum terlihat.",
+        pesan: "Kamu tidak mudah menilai sesuatu hanya dari satu sisi. Kamu mampu melihat keadaan dengan lebih fleksibel."
     },
 
-    "asoka": {
-        name: "Asoka",
-        colors: "🖤",
-        type: "BLACK CHARACTER",
-        character: "The Shadow",
-        quote: "You do not need to be bright to have a presence.",
-        message: "You carry a bold and strong character. You know your boundaries and are not afraid to protect what matters to you."
+    asoka: {
+        nama: "Asoka",
+        warna: "🖤",
+        jenis: "JAHAT",
+        karakter: "Sisi Gelap",
+        kutipan: "Sisi gelap juga merupakan bagian dari karakter seseorang.",
+        pesan: "Kamu memiliki karakter yang kuat, keras, dan berani. Kamu tidak mudah mundur ketika sudah menentukan sikap."
     },
 
-    "firly": {
-        name: "Firly",
-        colors: "🩶",
-        type: "GREY CHARACTER",
-        character: "The Grey Mind",
-        quote: "Understanding is sometimes more powerful than choosing a side.",
-        message: "You are someone who can exist comfortably between different perspectives. You bring flexibility and thoughtfulness into the team."
+    firly: {
+        nama: "Firly",
+        warna: "🩶",
+        jenis: "SETENGAH-SETENGAH",
+        karakter: "Di Tengah",
+        kutipan: "Tidak semuanya harus hitam atau putih.",
+        pesan: "Kamu memiliki kemampuan untuk melihat keadaan dari sisi yang berbeda. Kamu bisa berubah dan menyesuaikan diri dengan keadaan."
     },
 
-    "andre": {
-        name: "Andre",
-        colors: "🩶",
-        type: "GREY CHARACTER",
-        character: "The Grey Mind",
-        quote: "There is always another side to the story.",
-        message: "You have a balanced way of looking at situations. You can adapt, reconsider, and understand before making a final judgment."
+    andre: {
+        nama: "Andre",
+        warna: "🩶",
+        jenis: "SETENGAH-SETENGAH",
+        karakter: "Di Tengah",
+        kutipan: "Ada banyak hal yang berada di antara baik dan jahat.",
+        pesan: "Kamu tidak selalu melihat sesuatu secara mutlak. Kamu mampu memahami bahwa keadaan bisa memengaruhi bagaimana seseorang bersikap."
     },
 
-    "bunga": {
-        name: "Bunga",
-        colors: "🖤 🩶",
-        type: "BLACK CHARACTER × GREY CHARACTER",
-        character: "The Dual Soul",
-        quote: "Strong enough to stand, wise enough to understand.",
-        message: "You combine confidence with the ability to understand different perspectives. Your character is not one-dimensional."
+    bunga: {
+        nama: "Bunga",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Dua Sisi",
+        kutipan: "Keras ketika perlu, memahami ketika mampu.",
+        pesan: "Kamu memiliki sisi keras yang cukup kuat, tetapi juga mampu memahami keadaan yang membuat sesuatu tidak selalu menjadi hitam atau putih."
     },
 
-    "eggy": {
-        name: "Eggy",
-        colors: "🤍 🖤",
-        type: "WHITE CHARACTER × BLACK CHARACTER",
-        character: "The Gentle Strength",
-        quote: "Kindness becomes powerful when it knows how to stand its ground.",
-        message: "You have both a soft and strong side. You can bring kindness while still knowing when to be firm."
+    eggy: {
+        nama: "Eggy",
+        warna: "🤍 🖤",
+        jenis: "BAIK × JAHAT",
+        karakter: "Dua Sisi Berlawanan",
+        kutipan: "Kebaikan dan sisi gelap bisa hidup dalam satu karakter.",
+        pesan: "Kamu memiliki perpaduan antara sisi baik dan sisi keras. Keduanya bisa muncul tergantung situasi yang sedang dihadapi."
     },
 
-    "dani": {
-        name: "Dani",
-        colors: "🩶 🤍",
-        type: "GREY CHARACTER × WHITE CHARACTER",
-        character: "The Balance",
-        quote: "Peace is not weakness. Sometimes it is wisdom.",
-        message: "You bring a steady energy into the team. You can understand different sides without losing your kindness and fairness."
+    dani: {
+        nama: "Dani",
+        warna: "🩶 🤍",
+        jenis: "SETENGAH-SETENGAH × BAIK",
+        karakter: "Penengah",
+        kutipan: "Memahami lebih dulu sebelum menentukan pilihan.",
+        pesan: "Kamu memiliki sisi baik yang kuat tetapi tetap bisa memahami keadaan dari sudut pandang yang berbeda."
     },
 
-    "akbar": {
-        name: "Akbar",
-        colors: "🤍",
-        type: "WHITE CHARACTER",
-        character: "The Light",
-        quote: "Some people make things lighter simply by being there.",
-        message: "You carry a calm and positive presence. Your character can become a quiet source of stability for the people around you."
+    akbar: {
+        nama: "Akbar",
+        warna: "🤍",
+        jenis: "BAIK",
+        karakter: "Sisi Terang",
+        kutipan: "Beberapa orang membuat keadaan terasa lebih ringan.",
+        pesan: "Kamu memiliki karakter yang cenderung baik dan positif. Kehadiranmu dapat membawa suasana yang lebih tenang bagi orang lain."
     },
 
-    "fauzan": {
-        name: "Fauzan",
-        colors: "🖤 🩶",
-        type: "BLACK CHARACTER × GREY CHARACTER",
-        character: "The Dual Soul",
-        quote: "Strength and understanding can exist in the same person.",
-        message: "You have a strong side that can take action and a thoughtful side that can understand complexity. Both are part of your character."
+    fauzan: {
+        nama: "Fauzan",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Dua Sisi",
+        kutipan: "Kekuatan dan pemahaman bisa berada dalam satu diri.",
+        pesan: "Kamu memiliki sisi kuat dan keras, tetapi juga mampu melihat keadaan dari sisi lain. Tidak semuanya harus menjadi satu pilihan."
     }
 
 };
 
 
-/* =========================================
-   START REVEAL
-========================================= */
+/* ==========================================
+   MEMBUKA KARAKTER
+========================================== */
 
-function startReveal() {
+function bukaKarakter() {
 
-    const hash = window.location.hash
+    let kode = window.location.hash
         .replace("#", "")
         .toLowerCase();
 
-    let key = hash;
-
     /*
-      Kalau tidak ada QR/hash,
-      otomatis tampilkan Ghea untuk preview.
+        Kalau website dibuka tanpa kode,
+        otomatis menampilkan Ghea sebagai contoh.
     */
 
-    if (!members[key]) {
-        key = "ghea";
+    if (!anggota[kode]) {
+        kode = "ghea";
     }
 
-    const person = members[key];
+    const data = anggota[kode];
 
-    const keys = Object.keys(members);
-    const index = keys.indexOf(key) + 1;
+    const daftarNama = Object.keys(anggota);
 
-    document.getElementById("opening").classList.add("hidden");
+    const nomor =
+        daftarNama.indexOf(kode) + 1;
 
-    const reveal = document.getElementById("reveal");
+    document
+        .getElementById("halamanAwal")
+        .classList.add("sembunyi");
 
-    reveal.className = "card reveal";
+    const halaman =
+        document.getElementById("halamanKarakter");
 
-    document.getElementById("number").textContent =
-        "CHARACTER " + String(index).padStart(2, "0");
+    halaman.className =
+        "kartu reveal";
 
-    document.getElementById("name").textContent =
-        person.name;
 
-    document.getElementById("colors").textContent =
-        person.colors;
+    document.getElementById("nomor")
+        .textContent =
+        "KARAKTER " +
+        String(nomor).padStart(2, "0");
 
-    document.getElementById("type").textContent =
-        person.type;
 
-    document.getElementById("characterName").textContent =
-        person.character;
+    document.getElementById("nama")
+        .textContent =
+        data.nama;
 
-    document.getElementById("quote").textContent =
-        "“" + person.quote + "”";
 
-    document.getElementById("message").textContent =
-        person.message;
+    document.getElementById("warna")
+        .textContent =
+        data.warna;
 
-    /* warna card */
 
-    if (person.colors.includes("💚")) {
-        reveal.classList.add("green-glow");
-        document.getElementById("characterName")
-            .classList.add("green-text");
+    document.getElementById("jenis")
+        .textContent =
+        data.jenis;
+
+
+    document.getElementById("judulKarakter")
+        .textContent =
+        data.karakter;
+
+
+    document.getElementById("kutipan")
+        .textContent =
+        "“" + data.kutipan + "”";
+
+
+    document.getElementById("pesan")
+        .textContent =
+        data.pesan;
+
+
+    /* WARNA EFEK */
+
+    if (data.warna.includes("💚")) {
+
+        halaman.classList.add("efek-hijau");
+
+        document
+            .getElementById("judulKarakter")
+            .classList.add("teks-hijau");
+
     }
-    else if (person.colors === "🤍") {
-        reveal.classList.add("white-glow");
+
+    else if (data.warna === "🤍") {
+
+        halaman.classList.add("efek-putih");
+
     }
-    else if (person.colors.includes("🩶")) {
-        reveal.classList.add("grey-glow");
+
+    else if (data.warna.includes("🩶")) {
+
+        halaman.classList.add("efek-abu");
+
     }
+
     else {
-        reveal.classList.add("black-glow");
+
+        halaman.classList.add("efek-hitam");
+
     }
+
 }
 
 
-/* =========================================
-   AUTO OPEN JIKA ADA QR
-========================================= */
+/* ==========================================
+   OTOMATIS TERBUKA DARI QR
+========================================== */
 
 if (window.location.hash) {
-    setTimeout(startReveal, 700);
+
+    setTimeout(
+        bukaKarakter,
+        700
+    );
+
 }
 
 </script>
