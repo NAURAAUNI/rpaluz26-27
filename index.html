@@ -1,1 +1,665 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>RP ALUZ DI KARAKTER</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 30%, #242424 0%, #111 35%, #050505 75%);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 45px 45px;
+}
+
+/* PARTICLES */
+
+.particle {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: .3;
+    animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+        opacity: .1;
+    }
+    50% {
+        transform: translateY(-80px);
+        opacity: .6;
+    }
+}
+
+/* MAIN */
+
+.container {
+    width: min(92%, 700px);
+    margin: auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.card {
+    width: 100%;
+    text-align: center;
+    padding: 55px 30px;
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(10,10,10,.72);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 30px 80px rgba(0,0,0,.65);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,.08), transparent 70%);
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo {
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: #999;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 10vw, 78px);
+    font-weight: 500;
+    letter-spacing: 4px;
+    line-height: .9;
+}
+
+.subtitle {
+    margin-top: 18px;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #aaa;
+    text-transform: uppercase;
+}
+
+.line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, white, transparent);
+    margin: 35px auto;
+}
+
+.description {
+    color: #999;
+    line-height: 1.8;
+    font-size: 13px;
+    max-width: 450px;
+    margin: auto;
+}
+
+button {
+    margin-top: 35px;
+    padding: 15px 35px;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+button:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 35px rgba(255,255,255,.2);
+}
+
+/* REVEAL */
+
+.hidden {
+    display: none;
+}
+
+.reveal {
+    animation: reveal .9s ease forwards;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.number {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 15vw, 100px);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.colors {
+    font-size: 40px;
+    margin: 25px 0;
+    letter-spacing: 8px;
+}
+
+.character-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 31px;
+    font-style: italic;
+    margin-bottom: 18px;
+}
+
+.character-type {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #999;
+    text-transform: uppercase;
+}
+
+.quote {
+    margin: 28px auto;
+    max-width: 470px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.message {
+    max-width: 470px;
+    margin: auto;
+    font-size: 13px;
+    line-height: 1.9;
+    color: #999;
+}
+
+.footer {
+    margin-top: 45px;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #555;
+}
+
+/* COLOR EFFECTS */
+
+.black-glow {
+    box-shadow:
+        0 0 100px rgba(0,0,0,.9),
+        inset 0 0 70px rgba(255,255,255,.015);
+}
+
+.grey-glow {
+    box-shadow:
+        0 0 100px rgba(160,160,160,.08),
+        inset 0 0 70px rgba(180,180,180,.03);
+}
+
+.white-glow {
+    box-shadow:
+        0 0 100px rgba(255,255,255,.1),
+        inset 0 0 70px rgba(255,255,255,.04);
+}
+
+.green-glow {
+    box-shadow:
+        0 0 100px rgba(70,255,150,.18),
+        inset 0 0 70px rgba(70,255,150,.04);
+}
+
+.green-text {
+    color: #75e6a5;
+}
+
+.small-note {
+    margin-top: 20px;
+    font-size: 10px;
+    color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<div class="particle" style="left:10%;top:20%;animation-delay:1s"></div>
+<div class="particle" style="left:25%;top:70%;animation-delay:3s"></div>
+<div class="particle" style="left:70%;top:30%;animation-delay:2s"></div>
+<div class="particle" style="left:90%;top:65%;animation-delay:5s"></div>
+<div class="particle" style="left:55%;top:85%;animation-delay:4s"></div>
+
+<div class="container">
+
+    <!-- OPENING -->
+    <div class="card black-glow" id="opening">
+
+        <div class="logo">
+            RP ALUZ
+        </div>
+
+        <h1>
+            DI<br>
+            KARAKTER
+        </h1>
+
+        <div class="subtitle">
+            The Character Within Us
+        </div>
+
+        <div class="line"></div>
+
+        <p class="description">
+            Everyone has a side that people see,
+            and a side that only a few people know.
+            <br><br>
+            Tonight, yours will be revealed.
+        </p>
+
+        <button onclick="startReveal()">
+            UNLOCK YOUR CHARACTER
+        </button>
+
+        <div class="small-note">
+            Scan • Discover • Reveal
+        </div>
+
+    </div>
+
+
+    <!-- REVEAL -->
+    <div class="card hidden" id="reveal">
+
+        <div class="number" id="number"></div>
+
+        <div class="name" id="name"></div>
+
+        <div class="colors" id="colors"></div>
+
+        <div class="character-type" id="type"></div>
+
+        <div class="line"></div>
+
+        <div class="character-name" id="characterName"></div>
+
+        <div class="quote" id="quote"></div>
+
+        <div class="message" id="message"></div>
+
+        <div class="footer">
+            25 CHARACTERS • ONE TEAM • ONE STORY
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   DATA 25 ANGGOTA
+========================================= */
+
+const members = {
+
+    "ghea": {
+        name: "Ghea",
+        colors: "🖤 🩶",
+        type: "BLACK CHARACTER × GREY CHARACTER",
+        character: "The Dual Soul",
+        quote: "Sometimes the strongest people are the ones who understand both sides.",
+        message: "You carry a strong presence, but you are not limited to one perspective. You can be firm when needed and still understand the grey areas that others might overlook."
+    },
+
+    "naura": {
+        name: "Naura",
+        colors: "🖤",
+        type: "BLACK CHARACTER",
+        character: "The Shadow",
+        quote: "There is strength in the side of you that not everyone gets to see.",
+        message: "You have a strong and mysterious energy. You know when to stand your ground, when to be bold, and when silence speaks louder than words."
+    },
+
+    "nala": {
+        name: "Nala",
+        colors: "🖤 🩶",
+        type: "BLACK CHARACTER × GREY CHARACTER",
+        character: "The Dual Soul",
+        quote: "Not everything is black or white. Sometimes, understanding lives in between.",
+        message: "You have the ability to be strong while still considering different perspectives. You are not afraid of complexity."
+    },
+
+    "azzira": {
+        name: "Azzira",
+        colors: "🩶 🤍",
+        type: "GREY CHARACTER × WHITE CHARACTER",
+        character: "The Balance",
+        quote: "Some people are not here to choose sides. They are here to create balance.",
+        message: "You naturally bring calmness and balance. You can understand different sides while still choosing kindness and fairness."
+    },
+
+    "fidel": {
+        name: "Fidel",
+        colors: "💚",
+        type: "SAFE PLACE",
+        character: "The Safe Place",
+        quote: "Some people feel like home.",
+        message: "You are the kind of person who makes others feel safe enough to be themselves. Sometimes you do not need to have the answer. Being there is already enough."
+    },
+
+    "adli": {
+        name: "Adli",
+        colors: "🩶 🤍",
+        type: "GREY CHARACTER × WHITE CHARACTER",
+        character: "The Balance",
+        quote: "Understanding comes before judgment.",
+        message: "You can stand between different perspectives without losing your sense of fairness. You are a quiet balance within the team."
+    },
+
+    "reona": {
+        name: "Reona",
+        colors: "🩶",
+        type: "GREY CHARACTER",
+        character: "The Grey Mind",
+        quote: "The world is rarely as simple as right or wrong.",
+        message: "You understand that every situation has another side. Your ability to think between the lines makes you valuable when decisions are not simple."
+    },
+
+    "zuhrah": {
+        name: "Zuhrah",
+        colors: "🩶 🤍",
+        type: "GREY CHARACTER × WHITE CHARACTER",
+        character: "The Balance",
+        quote: "A calm mind can see what chaos cannot.",
+        message: "You carry a balanced energy. You can understand different perspectives while remaining kind, calm, and fair."
+    },
+
+    "arif": {
+        name: "Arif",
+        colors: "🤍",
+        type: "WHITE CHARACTER",
+        character: "The Light",
+        quote: "Kindness does not need to be loud to be powerful.",
+        message: "You bring a neutral and positive energy into the team. Your presence helps create an atmosphere where people can breathe and be themselves."
+    },
+
+    "annisa": {
+        name: "Annisa",
+        colors: "🖤",
+        type: "BLACK CHARACTER",
+        character: "The Shadow",
+        quote: "Strength is not always meant to be understood by everyone.",
+        message: "You have a strong character and a presence that can stand on its own. You know how to be firm when the situation demands it."
+    },
+
+    "marcel": {
+        name: "Marcel",
+        colors: "🖤 🩶",
+        type: "BLACK CHARACTER × GREY CHARACTER",
+        character: "The Dual Soul",
+        quote: "You can be strong without forgetting how to understand.",
+        message: "You have both firmness and flexibility. You can take a strong position while still being able to understand another point of view."
+    },
+
+    "arzak": {
+        name: "Arzak",
+        colors: "🖤 🤍",
+        type: "BLACK CHARACTER × WHITE CHARACTER",
+        character: "The Gentle Strength",
+        quote: "Real strength knows when to be fierce and when to be gentle.",
+        message: "You combine determination with kindness. You can be strong without losing your sense of what is right."
+    },
+
+    "via": {
+        name: "Via",
+        colors: "🤍 🩶 🖤",
+        type: "WHITE × GREY × BLACK",
+        character: "The Complete Spectrum",
+        quote: "You cannot be defined by just one side.",
+        message: "You carry many layers. You can be kind, uncertain, understanding, firm, and strong depending on what the moment needs."
+    },
+
+    "elif": {
+        name: "Elif",
+        colors: "🤍",
+        type: "WHITE CHARACTER",
+        character: "The Light",
+        quote: "A good heart can change the atmosphere of an entire room.",
+        message: "Your character carries warmth and neutrality. You have the ability to become a calming presence when things around you become complicated."
+    },
+
+    "meme": {
+        name: "Meme",
+        colors: "🖤 🩶",
+        type: "BLACK CHARACTER × GREY CHARACTER",
+        character: "The Dual Soul",
+        quote: "There is more to you than what first meets the eye.",
+        message: "You have a layered personality. You can be strong and direct, while still understanding the situations that exist somewhere between black and white."
+    },
+
+    "desfa": {
+        name: "Desfa",
+        colors: "🩶 🤍",
+        type: "GREY CHARACTER × WHITE CHARACTER",
+        character: "The Balance",
+        quote: "Sometimes the most important role is simply keeping things balanced.",
+        message: "You bring a mixture of understanding, calmness, and kindness. You help the team see beyond one simple perspective."
+    },
+
+    "nickyta": {
+        name: "Nickyta",
+        colors: "🩶",
+        type: "GREY CHARACTER",
+        character: "The Grey Mind",
+        quote: "Between two sides, there is always a story worth understanding.",
+        message: "You have the ability to see situations from different angles. You do not rush to judge, and that makes your perspective valuable."
+    },
+
+    "asoka": {
+        name: "Asoka",
+        colors: "🖤",
+        type: "BLACK CHARACTER",
+        character: "The Shadow",
+        quote: "You do not need to be bright to have a presence.",
+        message: "You carry a bold and strong character. You know your boundaries and are not afraid to protect what matters to you."
+    },
+
+    "firly": {
+        name: "Firly",
+        colors: "🩶",
+        type: "GREY CHARACTER",
+        character: "The Grey Mind",
+        quote: "Understanding is sometimes more powerful than choosing a side.",
+        message: "You are someone who can exist comfortably between different perspectives. You bring flexibility and thoughtfulness into the team."
+    },
+
+    "andre": {
+        name: "Andre",
+        colors: "🩶",
+        type: "GREY CHARACTER",
+        character: "The Grey Mind",
+        quote: "There is always another side to the story.",
+        message: "You have a balanced way of looking at situations. You can adapt, reconsider, and understand before making a final judgment."
+    },
+
+    "bunga": {
+        name: "Bunga",
+        colors: "🖤 🩶",
+        type: "BLACK CHARACTER × GREY CHARACTER",
+        character: "The Dual Soul",
+        quote: "Strong enough to stand, wise enough to understand.",
+        message: "You combine confidence with the ability to understand different perspectives. Your character is not one-dimensional."
+    },
+
+    "eggy": {
+        name: "Eggy",
+        colors: "🤍 🖤",
+        type: "WHITE CHARACTER × BLACK CHARACTER",
+        character: "The Gentle Strength",
+        quote: "Kindness becomes powerful when it knows how to stand its ground.",
+        message: "You have both a soft and strong side. You can bring kindness while still knowing when to be firm."
+    },
+
+    "dani": {
+        name: "Dani",
+        colors: "🩶 🤍",
+        type: "GREY CHARACTER × WHITE CHARACTER",
+        character: "The Balance",
+        quote: "Peace is not weakness. Sometimes it is wisdom.",
+        message: "You bring a steady energy into the team. You can understand different sides without losing your kindness and fairness."
+    },
+
+    "akbar": {
+        name: "Akbar",
+        colors: "🤍",
+        type: "WHITE CHARACTER",
+        character: "The Light",
+        quote: "Some people make things lighter simply by being there.",
+        message: "You carry a calm and positive presence. Your character can become a quiet source of stability for the people around you."
+    },
+
+    "fauzan": {
+        name: "Fauzan",
+        colors: "🖤 🩶",
+        type: "BLACK CHARACTER × GREY CHARACTER",
+        character: "The Dual Soul",
+        quote: "Strength and understanding can exist in the same person.",
+        message: "You have a strong side that can take action and a thoughtful side that can understand complexity. Both are part of your character."
+    }
+
+};
+
+
+/* =========================================
+   START REVEAL
+========================================= */
+
+function startReveal() {
+
+    const hash = window.location.hash
+        .replace("#", "")
+        .toLowerCase();
+
+    let key = hash;
+
+    /*
+      Kalau tidak ada QR/hash,
+      otomatis tampilkan Ghea untuk preview.
+    */
+
+    if (!members[key]) {
+        key = "ghea";
+    }
+
+    const person = members[key];
+
+    const keys = Object.keys(members);
+    const index = keys.indexOf(key) + 1;
+
+    document.getElementById("opening").classList.add("hidden");
+
+    const reveal = document.getElementById("reveal");
+
+    reveal.className = "card reveal";
+
+    document.getElementById("number").textContent =
+        "CHARACTER " + String(index).padStart(2, "0");
+
+    document.getElementById("name").textContent =
+        person.name;
+
+    document.getElementById("colors").textContent =
+        person.colors;
+
+    document.getElementById("type").textContent =
+        person.type;
+
+    document.getElementById("characterName").textContent =
+        person.character;
+
+    document.getElementById("quote").textContent =
+        "“" + person.quote + "”";
+
+    document.getElementById("message").textContent =
+        person.message;
+
+    /* warna card */
+
+    if (person.colors.includes("💚")) {
+        reveal.classList.add("green-glow");
+        document.getElementById("characterName")
+            .classList.add("green-text");
+    }
+    else if (person.colors === "🤍") {
+        reveal.classList.add("white-glow");
+    }
+    else if (person.colors.includes("🩶")) {
+        reveal.classList.add("grey-glow");
+    }
+    else {
+        reveal.classList.add("black-glow");
+    }
+}
+
+
+/* =========================================
+   AUTO OPEN JIKA ADA QR
+========================================= */
+
+if (window.location.hash) {
+    setTimeout(startReveal, 700);
+}
+
+</script>
+
+</body>
+</html>
