@@ -7,10 +7,12 @@
 <title>RP ALUZ DI KARAKTER</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -18,12 +20,10 @@ body {
     background:
         radial-gradient(circle at 50% 15%, #292929 0%, #111 35%, #030303 80%);
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* COVER */
-
-.cover {
+.container {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -31,41 +31,43 @@ body {
     padding: 30px 15px;
 }
 
-.cover-box {
+.kartu {
     width: min(720px, 95%);
+    padding: 60px 30px;
     text-align: center;
-    padding: 70px 30px;
 
-    background: rgba(10,10,10,.8);
+    background: rgba(8,8,8,.82);
     border: 1px solid rgba(255,255,255,.15);
     border-radius: 28px;
 
     box-shadow: 0 30px 90px rgba(0,0,0,.8);
 }
 
+/* COVER */
+
 .logo {
-    color: #999;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 8px;
+    color: #888;
     margin-bottom: 30px;
 }
 
 h1 {
-    font-family: Georgia, serif;
-    font-size: clamp(45px, 10vw, 80px);
-    font-weight: normal;
-    line-height: .9;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 11vw, 82px);
+    font-weight: 500;
+    line-height: .88;
     letter-spacing: 5px;
 }
 
-.subtitle {
+.subjudul {
     margin-top: 22px;
-    color: #aaa;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 3px;
+    color: #999;
 }
 
-.line {
+.garis {
     width: 80px;
     height: 1px;
     margin: 35px auto;
@@ -78,7 +80,7 @@ h1 {
     );
 }
 
-.cover-text {
+.deskripsi {
     max-width: 480px;
     margin: auto;
 
@@ -87,172 +89,161 @@ h1 {
     line-height: 1.9;
 }
 
-.enter {
-    display: inline-block;
+button {
     margin-top: 35px;
-    padding: 14px 32px;
+    padding: 15px 35px;
+
+    background: transparent;
+    color: white;
 
     border: 1px solid #555;
-    border-radius: 30px;
+    border-radius: 50px;
 
-    color: white;
-    text-decoration: none;
-
-    font-size: 11px;
+    font-family: inherit;
+    font-size: 10px;
     letter-spacing: 3px;
 
-    transition: .3s;
+    cursor: pointer;
+    transition: .35s;
 }
 
-.enter:hover {
+button:hover {
     background: white;
     color: black;
 }
 
-/* QR */
-
-.qr-section {
-    display: none;
-    padding: 60px 15px;
-}
-
-.qr-section.active {
-    display: block;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.header h2 {
-    font-family: Georgia, serif;
-    font-size: 38px;
-    font-weight: normal;
+.catatan {
+    margin-top: 30px;
+    font-size: 9px;
     letter-spacing: 3px;
-}
-
-.header p {
-    margin-top: 10px;
-    color: #777;
-    font-size: 12px;
-    letter-spacing: 2px;
-}
-
-.grid {
-    max-width: 1100px;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-
-    gap: 22px;
-}
-
-.qr-card {
-    background: #111;
-
-    border: 1px solid #2d2d2d;
-    border-radius: 20px;
-
-    padding: 25px;
-
-    text-align: center;
-
-    transition: .3s;
-}
-
-.qr-card:hover {
-    transform: translateY(-5px);
-    border-color: #555;
-}
-
-.nomor {
     color: #555;
-    font-size: 10px;
-    letter-spacing: 3px;
+}
+
+/* KARAKTER */
+
+.sembunyi {
+    display: none;
 }
 
 .nama {
-    margin: 12px 0 18px;
-
-    font-family: Georgia, serif;
-    font-size: 27px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 15vw, 100px);
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
 
-.qr {
-    width: 190px;
-    height: 190px;
-
-    margin: auto;
-    padding: 10px;
-
-    background: white;
-}
-
-.qr img {
-    width: 100%;
-    height: 100%;
-}
-
-.link {
-    margin: 13px 0;
-
-    color: #555;
+.nomor {
     font-size: 9px;
-
-    word-break: break-all;
+    letter-spacing: 5px;
+    color: #666;
+    margin-bottom: 15px;
 }
 
-.download {
-    border: 1px solid #555;
-    background: transparent;
+.warna {
+    font-size: 43px;
+    margin: 25px 0;
+    letter-spacing: 8px;
+}
 
-    color: white;
-
-    padding: 9px 17px;
-
-    border-radius: 20px;
-
-    cursor: pointer;
-
+.jenis {
     font-size: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
+    color: #aaa;
 }
 
-.download:hover {
-    background: white;
-    color: black;
+.garis-kecil {
+    width: 60px;
+    height: 1px;
+    background: #666;
+    margin: 25px auto;
 }
 
-.kembali {
-    display: block;
-
-    width: fit-content;
-    margin: 45px auto 0;
-
-    color: #777;
-    text-decoration: none;
-
-    font-size: 11px;
+.judul-karakter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-style: italic;
+    margin-bottom: 20px;
 }
 
-.kembali:hover {
-    color: white;
+.kutipan {
+    max-width: 480px;
+    margin: 20px auto;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.pesan {
+    max-width: 480px;
+    margin: auto;
+
+    color: #999;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.footer {
+    margin-top: 45px;
+    color: #444;
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+.hijau {
+    box-shadow:
+        0 0 100px rgba(70,255,150,.18),
+        inset 0 0 70px rgba(70,255,150,.04);
+}
+
+.putih {
+    box-shadow:
+        0 0 100px rgba(255,255,255,.13),
+        inset 0 0 70px rgba(255,255,255,.04);
+}
+
+.abu {
+    box-shadow:
+        0 0 100px rgba(180,180,180,.1);
+}
+
+.hitam {
+    box-shadow:
+        0 0 100px rgba(0,0,0,.9);
+}
+
+.teks-hijau {
+    color: #70e6a0;
+}
+
+.muncul {
+    animation: muncul .8s ease;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     COVER
-========================= -->
+<div class="container">
 
-<section class="cover" id="cover">
+    <!-- =====================
+         COVER
+    ====================== -->
 
-    <div class="cover-box">
+    <div class="kartu hitam" id="cover">
 
         <div class="logo">
             RP ALUZ
@@ -263,263 +254,443 @@ h1 {
             KARAKTER
         </h1>
 
-        <div class="subtitle">
-            25 QR • 25 KARAKTER
+        <div class="subjudul">
+            KENALI KARAKTER DI BALIK SETIAP ORANG
         </div>
 
-        <div class="line"></div>
+        <div class="garis"></div>
 
-        <p class="cover-text">
-            Setiap orang memiliki karakter yang berbeda.
-            Sekarang waktunya menemukan karakter
-            masing-masing melalui QR rahasia.
+        <p class="deskripsi">
+            Setiap orang memiliki sisi yang berbeda.
+            Ada yang baik, ada yang jahat,
+            ada yang berada di tengah,
+            dan ada yang menjadi tempat aman
+            bagi orang lain.
             <br><br>
-            Pilih nama untuk melihat QR-nya.
+            Kamu sudah mendapatkan satu QR.
+            Sekarang waktunya mengetahui
+            karakter kamu.
         </p>
 
-        <a href="#qr" class="enter">
-            LIHAT QR
-        </a>
+        <button onclick="bukaKarakter()">
+            BUKA KARAKTERKU
+        </button>
 
-    </div>
-
-</section>
-
-
-<!-- =========================
-     QR SECTION
-========================= -->
-
-<section class="qr-section" id="qr">
-
-    <div class="header">
-
-        <div class="logo">
-            RP ALUZ
+        <div class="catatan">
+            RAHASIA • KHUSUS UNTUKMU
         </div>
 
-        <h2>
-            QR DI KARAKTER
-        </h2>
+    </div>
 
-        <p>
-            25 ORANG • 25 QR • 1 KELUARGA
-        </p>
+
+    <!-- =====================
+         KARAKTER
+    ====================== -->
+
+    <div class="kartu sembunyi" id="karakter">
+
+        <div class="nomor" id="nomor"></div>
+
+        <div class="nama" id="nama"></div>
+
+        <div class="warna" id="warna"></div>
+
+        <div class="jenis" id="jenis"></div>
+
+        <div class="garis-kecil"></div>
+
+        <div class="judul-karakter" id="judulKarakter"></div>
+
+        <div class="kutipan" id="kutipan"></div>
+
+        <div class="pesan" id="pesan"></div>
+
+        <div class="footer">
+            RP ALUZ • DI KARAKTER
+        </div>
 
     </div>
 
-    <div class="grid" id="qrContainer"></div>
-
-    <a
-        href="#cover"
-        class="kembali">
-
-        ↑ KEMBALI KE COVER
-
-    </a>
-
-</section>
+</div>
 
 
 <script>
 
-/* =========================
-   DATA NAMA
-========================= */
+/* ==========================================
+   DATA KARAKTER
+========================================== */
 
-const nama = [
+const anggota = {
 
-    "Ghea",
-    "Naura",
-    "Nala",
-    "Azzira",
-    "Fidel",
-    "Adli",
-    "Reona",
-    "Zuhrah",
-    "Arif",
-    "Annisa",
-    "Marcel",
-    "Arzak",
-    "Via",
-    "Elif",
-    "Meme",
-    "Desfa",
-    "Nickyta",
-    "Asoka",
-    "Firly",
-    "Andre",
-    "Bunga",
-    "Eggy",
-    "Dani",
-    "Akbar",
-    "Fauzan"
+    ghea: {
+        nama: "Ghea",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Sisi Gelap yang Tidak Sepenuhnya Gelap",
+        kutipan: "Tidak semua orang bisa dikategorikan hanya sebagai baik atau jahat.",
+        pesan: "Kamu memiliki sisi yang bisa terlihat keras dan jahat, tetapi tidak sepenuhnya berada di satu sisi. Ada keadaan tertentu yang membuatmu bisa berubah dan mempertimbangkan sisi lainnya."
+    },
 
-];
+    naura: {
+        nama: "Naura",
+        warna: "🖤",
+        jenis: "JAHAT",
+        karakter: "Sisi Gelap",
+        kutipan: "Tidak semua sisi gelap harus disembunyikan.",
+        pesan: "Kamu memiliki karakter yang kuat, keras, berani, dan tidak takut menunjukkan ketegasan."
+    },
 
+    nala: {
+        nama: "Nala",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Di Antara Dua Sisi",
+        kutipan: "Tidak semua hal hanya memiliki satu sisi.",
+        pesan: "Kamu berada di antara dua sisi. Dalam keadaan tertentu kamu bisa menunjukkan sisi gelap, tetapi di keadaan lain kamu masih bisa memahami keadaan."
+    },
 
-/* =========================
-   WEBSITE UTAMA
-========================= */
+    azzira: {
+        nama: "Azzira",
+        warna: "🩶 🤍",
+        jenis: "SETENGAH-SETENGAH × BAIK",
+        karakter: "Penengah",
+        kutipan: "Tidak selalu harus memilih satu sisi.",
+        pesan: "Kamu mampu memahami berbagai keadaan. Ada sisi baik dalam dirimu, tetapi kamu juga tahu bahwa tidak semua keadaan sesederhana baik dan buruk."
+    },
 
-const website =
-"https://nauraauni.github.io/rpaluz26-27/";
+    fidel: {
+        nama: "Fidel",
+        warna: "💚",
+        jenis: "SAFE PLACE",
+        karakter: "Tempat Aman",
+        kutipan: "Ada orang yang kehadirannya terasa seperti rumah.",
+        pesan: "Kamu adalah seseorang yang bisa membuat orang lain merasa aman, nyaman, diterima, dan bebas menjadi diri sendiri."
+    },
 
+    adli: {
+        nama: "Adli",
+        warna: "🩶 🤍",
+        jenis: "SETENGAH-SETENGAH × BAIK",
+        karakter: "Penengah",
+        kutipan: "Memahami keadaan sebelum menentukan sisi.",
+        pesan: "Kamu mampu melihat keadaan dari beberapa sudut. Kamu punya sisi baik yang kuat, tetapi tetap memahami bahwa setiap keadaan memiliki cerita yang berbeda."
+    },
 
-/* =========================
-   CONTAINER
-========================= */
+    reona: {
+        nama: "Reona",
+        warna: "🩶",
+        jenis: "SETENGAH-SETENGAH",
+        karakter: "Di Tengah",
+        kutipan: "Tidak semua hal hanya memiliki dua jawaban.",
+        pesan: "Kamu tidak selalu berpihak pada satu sisi. Kamu bisa melihat keadaan dari berbagai sudut dan memilih berdasarkan situasi."
+    },
 
-const container =
-document.getElementById("qrContainer");
+    zuhrah: {
+        nama: "Zuhrah",
+        warna: "🩶 🤍",
+        jenis: "SETENGAH-SETENGAH × BAIK",
+        karakter: "Penengah",
+        kutipan: "Ketenangan sering muncul dari kemampuan memahami dua sisi.",
+        pesan: "Kamu memiliki sisi baik dan juga kemampuan memahami keadaan yang tidak selalu hitam putih."
+    },
 
+    arif: {
+        nama: "Arif",
+        warna: "🤍",
+        jenis: "BAIK",
+        karakter: "Sisi Terang",
+        kutipan: "Kebaikan tidak perlu selalu ditunjukkan dengan suara keras.",
+        pesan: "Kamu cenderung membawa energi yang baik dan positif. Kehadiranmu dapat membuat suasana menjadi lebih tenang dan nyaman."
+    },
 
-/* =========================
-   BUAT 25 QR
-========================= */
+    annisa: {
+        nama: "Annisa",
+        warna: "🖤",
+        jenis: "JAHAT",
+        karakter: "Sisi Gelap",
+        kutipan: "Ada kekuatan dalam sisi yang tidak semua orang lihat.",
+        pesan: "Kamu memiliki karakter yang kuat dan tegas. Kamu tidak takut menunjukkan sisi kerasmu ketika keadaan membutuhkannya."
+    },
 
-nama.forEach((orang, index) => {
+    marcel: {
+        nama: "Marcel",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Dua Sisi",
+        kutipan: "Kuat untuk berdiri, cukup memahami untuk melihat sisi lain.",
+        pesan: "Kamu memiliki sisi keras sekaligus kemampuan memahami keadaan. Kamu tidak sepenuhnya berada di satu sisi."
+    },
 
-    const kode =
-        orang
-        .toLowerCase()
-        .replace(/\s/g, "");
+    arzak: {
+        nama: "Arzak",
+        warna: "🖤 🤍",
+        jenis: "JAHAT × BAIK",
+        karakter: "Dua Sisi yang Berlawanan",
+        kutipan: "Seseorang bisa memiliki sisi baik dan sisi gelap sekaligus.",
+        pesan: "Kamu memiliki perpaduan karakter yang berlawanan. Ada sisi tegas dan keras, tetapi ada pula sisi baik."
+    },
 
-    const link =
-        website + "#" + kode;
+    via: {
+        nama: "Via",
+        warna: "🤍 🩶 🖤",
+        jenis: "BAIK × SETENGAH-SETENGAH × JAHAT",
+        karakter: "Tiga Sisi",
+        kutipan: "Tidak ada satu sisi yang mampu menjelaskan seluruh dirimu.",
+        pesan: "Kamu memiliki karakter yang kompleks. Ada sisi baik, sisi tengah, dan sisi gelap yang dapat muncul tergantung keadaan."
+    },
 
-    const qr =
-        "https://api.qrserver.com/v1/create-qr-code/?size=500x500&data="
-        + encodeURIComponent(link);
+    elif: {
+        nama: "Elif",
+        warna: "🤍",
+        jenis: "BAIK",
+        karakter: "Sisi Terang",
+        kutipan: "Kebaikan kecil bisa mengubah suasana.",
+        pesan: "Kamu memiliki sisi yang cenderung baik dan positif. Kehadiranmu bisa membawa ketenangan."
+    },
 
+    meme: {
+        nama: "Meme",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Dua Sisi",
+        kutipan: "Tidak semua yang terlihat hanya memiliki satu sisi.",
+        pesan: "Kamu mempunyai sisi keras sekaligus sisi yang mampu memahami keadaan."
+    },
 
-    const card =
-        document.createElement("div");
+    desfa: {
+        nama: "Desfa",
+        warna: "🩶 🤍",
+        jenis: "SETENGAH-SETENGAH × BAIK",
+        karakter: "Penengah",
+        kutipan: "Berada di tengah bukan berarti tidak memiliki pendirian.",
+        pesan: "Kamu mampu memahami berbagai sisi sambil tetap memiliki kecenderungan untuk memilih hal yang baik."
+    },
 
-    card.className =
-        "qr-card";
+    nickyta: {
+        nama: "Nickyta",
+        warna: "🩶",
+        jenis: "SETENGAH-SETENGAH",
+        karakter: "Di Tengah",
+        kutipan: "Selalu ada sisi lain yang belum terlihat.",
+        pesan: "Kamu tidak mudah menilai sesuatu hanya dari satu sisi. Kamu mampu melihat keadaan dengan lebih fleksibel."
+    },
 
+    asoka: {
+        nama: "Asoka",
+        warna: "🖤",
+        jenis: "JAHAT",
+        karakter: "Sisi Gelap",
+        kutipan: "Sisi gelap juga merupakan bagian dari karakter seseorang.",
+        pesan: "Kamu memiliki karakter yang kuat, keras, dan berani."
+    },
 
-    card.innerHTML = `
+    firly: {
+        nama: "Firly",
+        warna: "🩶",
+        jenis: "SETENGAH-SETENGAH",
+        karakter: "Di Tengah",
+        kutipan: "Tidak semuanya harus hitam atau putih.",
+        pesan: "Kamu memiliki kemampuan untuk melihat keadaan dari sisi yang berbeda."
+    },
 
-        <div class="nomor">
-            QR ${String(index + 1).padStart(2,"0")}
-        </div>
+    andre: {
+        nama: "Andre",
+        warna: "🩶",
+        jenis: "SETENGAH-SETENGAH",
+        karakter: "Di Tengah",
+        kutipan: "Ada banyak hal yang berada di antara baik dan jahat.",
+        pesan: "Kamu tidak selalu melihat sesuatu secara mutlak dan mampu memahami keadaan dari sudut pandang berbeda."
+    },
 
-        <div class="nama">
-            ${orang}
-        </div>
+    bunga: {
+        nama: "Bunga",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Dua Sisi",
+        kutipan: "Keras ketika perlu, memahami ketika mampu.",
+        pesan: "Kamu memiliki sisi keras yang cukup kuat, tetapi juga mampu memahami keadaan."
+    },
 
-        <div class="qr">
+    eggy: {
+        nama: "Eggy",
+        warna: "🤍 🖤",
+        jenis: "BAIK × JAHAT",
+        karakter: "Dua Sisi Berlawanan",
+        kutipan: "Kebaikan dan sisi gelap bisa hidup dalam satu karakter.",
+        pesan: "Kamu memiliki perpaduan antara sisi baik dan sisi keras."
+    },
 
-            <img
-                id="qr-${kode}"
-                src="${qr}"
-                alt="QR ${orang}"
-            >
+    dani: {
+        nama: "Dani",
+        warna: "🩶 🤍",
+        jenis: "SETENGAH-SETENGAH × BAIK",
+        karakter: "Penengah",
+        kutipan: "Memahami lebih dulu sebelum menentukan pilihan.",
+        pesan: "Kamu memiliki sisi baik yang kuat tetapi tetap bisa memahami keadaan dari sudut pandang berbeda."
+    },
 
-        </div>
+    akbar: {
+        nama: "Akbar",
+        warna: "🤍",
+        jenis: "BAIK",
+        karakter: "Sisi Terang",
+        kutipan: "Beberapa orang membuat keadaan terasa lebih ringan.",
+        pesan: "Kamu memiliki karakter yang cenderung baik dan positif."
+    },
 
-        <div class="link">
-            ${link}
-        </div>
-
-        <button
-            class="download"
-            onclick="downloadQR(
-                '${kode}',
-                '${orang}'
-            )">
-
-            DOWNLOAD QR
-
-        </button>
-
-    `;
-
-    container.appendChild(card);
-
-});
-
-
-/* =========================
-   DOWNLOAD QR
-========================= */
-
-async function downloadQR(kode, orang) {
-
-    const gambar =
-        document.getElementById(
-            "qr-" + kode
-        );
-
-    try {
-
-        const response =
-            await fetch(gambar.src);
-
-        const blob =
-            await response.blob();
-
-        const url =
-            URL.createObjectURL(blob);
-
-        const a =
-            document.createElement("a");
-
-        a.href = url;
-
-        a.download =
-            "QR-" + orang + ".png";
-
-        document.body.appendChild(a);
-
-        a.click();
-
-        a.remove();
-
-        URL.revokeObjectURL(url);
-
+    fauzan: {
+        nama: "Fauzan",
+        warna: "🖤 🩶",
+        jenis: "JAHAT × SETENGAH-SETENGAH",
+        karakter: "Dua Sisi",
+        kutipan: "Kekuatan dan pemahaman bisa berada dalam satu diri.",
+        pesan: "Kamu memiliki sisi kuat dan keras, tetapi juga mampu melihat keadaan dari sisi lain."
     }
 
-    catch (error) {
+};
+
+
+/* ==========================================
+   AMBIL NAMA DARI QR
+========================================== */
+
+let kodeQR =
+    window.location.hash
+    .replace("#", "")
+    .toLowerCase();
+
+
+/* ==========================================
+   BUKA KARAKTER
+========================================== */
+
+function bukaKarakter() {
+
+    /*
+       Kalau QR valid → buka karakter yang sesuai.
+       Kalau tidak ada QR → jangan membuka karakter.
+    */
+
+    if (!anggota[kodeQR]) {
 
         alert(
-            "Klik kanan pada QR lalu pilih " +
-            "'Simpan gambar sebagai'."
+            "QR karakter tidak ditemukan."
         );
 
+        return;
+    }
+
+
+    const data =
+        anggota[kodeQR];
+
+
+    const daftar =
+        Object.keys(anggota);
+
+
+    const nomor =
+        daftar.indexOf(kodeQR) + 1;
+
+
+    document
+        .getElementById("cover")
+        .classList.add("sembunyi");
+
+
+    const halaman =
+        document.getElementById("karakter");
+
+
+    halaman.className =
+        "kartu muncul";
+
+
+    document
+        .getElementById("nomor")
+        .textContent =
+        "KARAKTER " +
+        String(nomor).padStart(2, "0");
+
+
+    document
+        .getElementById("nama")
+        .textContent =
+        data.nama;
+
+
+    document
+        .getElementById("warna")
+        .textContent =
+        data.warna;
+
+
+    document
+        .getElementById("jenis")
+        .textContent =
+        data.jenis;
+
+
+    document
+        .getElementById("judulKarakter")
+        .textContent =
+        data.karakter;
+
+
+    document
+        .getElementById("kutipan")
+        .textContent =
+        "“" + data.kutipan + "”";
+
+
+    document
+        .getElementById("pesan")
+        .textContent =
+        data.pesan;
+
+
+    /* EFEK WARNA */
+
+    if (data.warna.includes("💚")) {
+
+        halaman.classList.add("hijau");
+
+        document
+            .getElementById("judulKarakter")
+            .classList.add("teks-hijau");
+
+    }
+
+    else if (
+        data.warna === "🤍"
+    ) {
+
+        halaman.classList.add("putih");
+
+    }
+
+    else if (
+        data.warna.includes("🩶")
+    ) {
+
+        halaman.classList.add("abu");
+
+    }
+
+    else {
+
+        halaman.classList.add("hitam");
+
     }
 
 }
 
 
-/* =========================
-   OTOMATIS BUKA QR
-========================= */
-
-function cekHash() {
-
-    if (window.location.hash === "#qr") {
-
-        document
-            .getElementById("cover")
-            .style.display = "none";
-
-        document
-            .getElementById("qr")
-            .classList.add("active");
-
-    }
-
-}
-
-cekHash();
-
-window.addEventListener(
-    "hashchange",
-    cekHash
-);
+/* ==========================================
+   PENTING:
+   KARAKTER TIDAK LANGSUNG DIBUKA.
+   COVER SELALU MUNCUL DULU.
+========================================== */
 
 </script>
 
